@@ -1,0 +1,190 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #1d1d2b;
+  background: #f4f4f6;
+}
+.pagina {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.titulo-seccion {
+  text-align: center;
+  margin-bottom: 32px;
+  color: #1d1d2b;
+}
+.encabezado {
+  background: #1d1d2b;
+  color: #ffffff;
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.encabezado .marca {
+  font-size: 22.4px;
+  font-weight: bold;
+}
+.encabezado .marca span {
+  color: #e63946;
+}
+.encabezado .menu {
+  display: flex;
+  gap: 16px;
+}
+.encabezado .menu a {
+  color: #ffffff;
+  text-decoration: none;
+}
+.encabezado .menu a:hover {
+  color: #ec6670;
+}
+.hero {
+  text-align: center;
+  padding: 64px 16px;
+}
+.hero h1 {
+  color: #1d1d2b;
+  margin-bottom: 16px;
+}
+.hero p {
+  max-width: 600px;
+  margin: 0 auto 24px auto;
+  color: #5e5e73;
+}
+.boton-principal {
+  display: inline-block;
+  background: #e63946;
+  color: #ffffff;
+  padding: 16px 24px;
+  border: none;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+.boton-principal:hover {
+  background: #d21a28;
+}
+.servicios {
+  padding: 48px 0;
+}
+.grid-servicios {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.grid-servicios .tarjeta {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  border-top: 5px solid #2a9d8f;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+.grid-servicios .tarjeta h3 {
+  color: #1d1d2b;
+}
+.grid-servicios .tarjeta p {
+  color: #595151;
+}
+.planes {
+  padding: 48px 0;
+  background: #ffffff;
+}
+.lista-planes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+.lista-planes .plan {
+  flex: 1 1 280px;
+  max-width: 320px;
+  background: #f4f4f6;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+.lista-planes .plan .precio {
+  font-size: 24px;
+  font-weight: bold;
+  color: #e63946;
+}
+.lista-planes .plan.plan--destacado {
+  background: #bfeee8;
+  border: 2px solid #2a9d8f;
+}
+.btn-plan-basico {
+  display: inline-block;
+  background: #1d1d2b;
+  color: #ffffff;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+.btn-plan-basico:hover {
+  background: #08080d;
+}
+.btn-plan-premium {
+  display: inline-block;
+  background: #2a9d8f;
+  color: #ffffff;
+  padding: 16px 24px;
+  border: none;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+.btn-plan-premium:hover {
+  background: #1f756a;
+}
+.btn-plan-familiar {
+  display: inline-block;
+  background: #e63946;
+  color: #ffffff;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+.btn-plan-familiar:hover {
+  background: #d21a28;
+}
+.contacto {
+  padding: 48px 0;
+  text-align: center;
+}
+.info-contacto p {
+  margin: 8px 0;
+}
+.pie {
+  background: #1d1d2b;
+  color: #ffffff;
+  text-align: center;
+  padding: 16px;
+}
+@media (max-width: 768px) {
+  .encabezado {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .grid-servicios {
+    grid-template-columns: 1fr;
+  }
+  .lista-planes {
+    flex-direction: column;
+    align-items: center;
+  }
+}

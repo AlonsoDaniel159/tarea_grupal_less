@@ -1,0 +1,241 @@
+// ==========================================================
+// PulseFit Gym - Landing Page
+// Variables globales
+// ==========================================================
+@primario: #e63946;
+@secundario: #1d1d2b;
+@acento: #2a9d8f;
+@blanco: #ffffff;
+@espaciado: 16px;
+@radio: 12px;
+@fuente-base: 16px;
+@ancho-maximo: 1100px;
+
+// ==========================================================
+// Mixins
+// ==========================================================
+
+// Mixin simple: sombra reutilizada en tarjetas y planes
+.sombra() {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+// Mixin parametrico: boton reutilizable (3 parametros, el tercero con valor por defecto)
+.boton(@fondo, @texto: @blanco, @padding: @espaciado) {
+  display: inline-block;
+  background: @fondo;
+  color: @texto;
+  padding: @padding (@padding * 1.5);
+  border: none;
+  border-radius: @radio;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+
+  &:hover {
+    background: darken(@fondo, 10%);
+  }
+}
+
+// ==========================================================
+// Base
+// ==========================================================
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: @fuente-base;
+  color: @secundario;
+  background: #f4f4f6;
+}
+
+.pagina {
+  max-width: @ancho-maximo;
+  margin: 0 auto;
+  padding: 0 @espaciado;
+}
+
+.titulo-seccion {
+  text-align: center;
+  margin-bottom: @espaciado * 2;
+  color: @secundario;
+}
+
+// ==========================================================
+// Encabezado (anidamiento + operaciones)
+// ==========================================================
+.encabezado {
+  background: @secundario;
+  color: @blanco;
+  padding: @espaciado (@espaciado * 2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .marca {
+    font-size: @fuente-base * 1.4;
+    font-weight: bold;
+
+    span {
+      color: @primario;
+    }
+  }
+
+  .menu {
+    display: flex;
+    gap: @espaciado;
+
+    a {
+      color: @blanco;
+      text-decoration: none;
+
+      &:hover {
+        color: lighten(@primario, 10%);
+      }
+    }
+  }
+}
+
+// ==========================================================
+// Hero
+// ==========================================================
+.hero {
+  text-align: center;
+  padding: (@espaciado * 4) @espaciado;
+
+  h1 {
+    color: @secundario;
+    margin-bottom: @espaciado;
+  }
+
+  p {
+    max-width: 600px;
+    margin: 0 auto (@espaciado * 1.5) auto;
+    color: darken(#f4f4f6, 55%);
+  }
+}
+
+.boton-principal {
+  .boton(@primario, @blanco, @espaciado);
+}
+
+// ==========================================================
+// Servicios (grid + funciones de color)
+// ==========================================================
+.servicios {
+  padding: (@espaciado * 3) 0;
+}
+
+.grid-servicios {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: @espaciado;
+
+  .tarjeta {
+    background: @blanco;
+    border-radius: @radio;
+    padding: @espaciado * 1.5;
+    border-top: 5px solid @acento;
+    .sombra();
+
+    h3 {
+      color: @secundario;
+    }
+
+    p {
+      color: saturate(#555555, 5%);
+    }
+  }
+}
+
+// ==========================================================
+// Planes (flexbox + mixin parametrico usado varias veces)
+// ==========================================================
+.planes {
+  padding: (@espaciado * 3) 0;
+  background: @blanco;
+}
+
+.lista-planes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: @espaciado;
+  justify-content: center;
+
+  .plan {
+    flex: 1 1 280px;
+    max-width: 320px;
+    background: #f4f4f6;
+    border-radius: @radio;
+    padding: @espaciado * 1.5;
+    text-align: center;
+    .sombra();
+
+    .precio {
+      font-size: @fuente-base * 1.5;
+      font-weight: bold;
+      color: @primario;
+    }
+
+    &.plan--destacado {
+      background: lighten(@acento, 45%);
+      border: 2px solid @acento;
+    }
+  }
+}
+
+.btn-plan-basico {
+  .boton(@secundario, @blanco, (@espaciado - 4px));
+}
+
+.btn-plan-premium {
+  .boton(@acento, @blanco, @espaciado);
+}
+
+.btn-plan-familiar {
+  .boton(@primario, @blanco, (@espaciado - 4px));
+}
+
+// ==========================================================
+// Contacto
+// ==========================================================
+.contacto {
+  padding: (@espaciado * 3) 0;
+  text-align: center;
+}
+
+.info-contacto p {
+  margin: (@espaciado / 2) 0;
+}
+
+// ==========================================================
+// Pie de pagina
+// ==========================================================
+.pie {
+  background: @secundario;
+  color: @blanco;
+  text-align: center;
+  padding: @espaciado;
+}
+
+// ==========================================================
+// Responsivo
+// ==========================================================
+@media (max-width: 768px) {
+  .encabezado {
+    flex-direction: column;
+    gap: (@espaciado / 2);
+  }
+
+  .grid-servicios {
+    grid-template-columns: 1fr;
+  }
+
+  .lista-planes {
+    flex-direction: column;
+    align-items: center;
+  }
+}
