@@ -89,6 +89,12 @@ body {
 .grid-servicios .tarjeta h3 {
   color: #1d1d2b;
 }
+.grid-servicios .tarjeta img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
 .grid-servicios .tarjeta p {
   color: #595151;
 }
